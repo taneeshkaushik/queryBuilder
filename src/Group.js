@@ -61,7 +61,7 @@ export default function Group(props)
     }
     
     return(
-        <Paper>
+        <Paper sx={{marginLeft:'10%',marginRight:'10%', marginTop: '2%'}}>
             <ToggleButtonGroup
                 color="primary"
                 value={conjuction}
@@ -73,8 +73,8 @@ export default function Group(props)
             {
                 data.map((element)=><Filter data={data} setData={setData} element={element}    ></Filter>)
             }
-            <Button onClick={addFilter}>Add Filter</Button>
-            <Button onClick={deleteGroup}>Delete Group</Button>
+            <Button variant="filled" color="primary" onClick={addFilter}>Add Filter</Button>
+            <Button variant="filled" color="secondary" onClick={deleteGroup}>Delete Group</Button>
 
 
             

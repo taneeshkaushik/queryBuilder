@@ -1,7 +1,7 @@
 import React from 'react'; 
 import Group from './Group'; 
 import Query from './Query'
-import {Button} from '@mui/material'; 
+import {Button, Paper} from '@mui/material'; 
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
   
   return (
     
-    <div>
+    <Paper scroll sx={{position:'fixed', width:'100%', height:'100%', background:'#000000', }}>
       <Query queries={queries}></Query>
       {
         groups.map((element)=><Group queries={queries} setQueries={setQueries}  groups={groups} setGroups={setGroups} timeStamp={element.timeStamp} ></Group>)
@@ -30,8 +30,8 @@ function App() {
 
       
       <Button onClick={addGroup}>Add Group</Button>
-      <Button>Finish</Button>
-    </div>
+      <Button color="primary">Finish</Button>
+    </Paper>
   );
 }
 

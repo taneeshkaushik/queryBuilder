@@ -39,7 +39,7 @@ const rule = {
     props.setData(newData);
     console.log(newData);
         
-    },[field,condition, criteria])
+    },[field,condition,criteria])
 
   function handleChange(event) {
 
@@ -56,9 +56,8 @@ const rule = {
         break;
       case "criteria":
         setCriteria(event.target.value);
-        
+ 
     }
-    
 
   }
 
@@ -69,7 +68,7 @@ const rule = {
     props.setData(newData);
   }
   return (
-    <Paper>
+    <Paper sx={{marginTop:'1%'}}>
       <Grid container>
         <Grid item xs={3.5}>
           <Typography>Fields</Typography>
