@@ -10,7 +10,7 @@ export default function Query(props)
         <Stack color="primary" >
             {props.queries.map((query, index)=><QueryContainer
                 sx={{marginLeft:'5%', marginRight:'10%'}}
-             id="outlined-basic" label="Query" variant="outlined" multiline query={query.query} index={index+1}/>)}
+             id="outlined-basic" label="Query" variant="outlined" multiline query={query} index={index+1}/>)}
         </Stack>
     ); 
     
