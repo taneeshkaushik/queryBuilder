@@ -5,5 +5,5 @@ export const Mapper = {
   "Not like": "NOT LIKE",
   Is: "IS",
   "Is not": "IS NOT",
-  "Is Empty": "IS NULL",
+  "Is Empty": "IS EMPTY",
 };

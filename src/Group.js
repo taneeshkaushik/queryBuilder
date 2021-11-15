@@ -16,7 +16,7 @@ export default function Group(props) {
   ]);
 
   React.useEffect(() => {
-      console.log("helo")
+      
     const query = QueryBuilder(conjuction, data);
     const newQueries=[...props.queries]; 
    
@@ -26,9 +26,13 @@ export default function Group(props) {
     
   }, [data, conjuction]);
 
+ 
+
   const handleChange = (event, newConjuction) => {
     setConjuction(newConjuction);
   };
+
+
 
   function addFilter() {
     const rule = {
@@ -38,32 +42,31 @@ export default function Group(props) {
     };
     setData([...data, rule]);
   }
+    
 
-  function deleteGroup() {
-    props.setQueries([...props.queries].splice(props.index,1));
-    props.setGroups([...props.groups].splice(props.index,1));
-  }
+  
 
   return (
-    <Paper sx={{ marginLeft: "10%", marginRight: "10%", marginTop: "2%" }}>
+    <Paper  sx={{ marginLeft: "10%", marginRight: "10%", marginTop: "2%", background: '#1D2025'   }}>
+    
       <ToggleButtonGroup
         color="primary"
         value={conjuction}
         exclusive
         onChange={handleChange}
+        sx={{margin: '1%'}}
       >
         <ToggleButton value={0}>OR</ToggleButton>
         <ToggleButton value={1}>AND</ToggleButton>
       </ToggleButtonGroup>
       {data.map((element, index) => (
-        <Filter data={data} setData={setData} index={index}></Filter>
+        <Filter data={data} setData={setData} index={index} groups={props.groups} ></Filter>
       ))}
-      <Button variant="filled" color="primary" onClick={addFilter}>
+      <Button sx={{margin:'1%'}} color="primary" variant="contained" onClick={addFilter}>
         Add Filter
       </Button>
-
-     {props.index !==0 ?  <Button variant="filled" color="secondary" onClick={deleteGroup}>Delete Group</Button>: <div></div>}
-        
-    </Paper>
+     {props.index !==0 ?  <Button sx={{margin:'1%'}} variant="contained" color="primary" onClick={()=>props.deleteGroup(props.index)}>Delete Group</Button>: <div></div>}
+      </Paper>  
+    
   );
 }

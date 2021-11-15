@@ -1,4 +1,4 @@
-import {TextField, Stack} from '@mui/material'; 
+import {TextField, Stack, Paper} from '@mui/material'; 
 import React from 'react';
 import QueryContainer from './QueryContainer';
 
@@ -7,11 +7,12 @@ export default function Query(props)
     
 
     return(
-        <Stack color="primary" >
+        
+        <Stack  sx={{ margin:'3%', borderRadius:'10px'}}  >
             {props.queries.map((query, index)=><QueryContainer
-                sx={{marginLeft:'5%', marginRight:'10%'}}
              id="outlined-basic" label="Query" variant="outlined" multiline query={query} index={index+1}/>)}
         </Stack>
+       
     ); 
     
     

@@ -13,7 +13,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function Filter(props) {
 
-  
+   
   var element = props.data[props.index];
   const [field, setField] = React.useState(element.field);
   const [condition, setCondition] = React.useState(element.condition);
@@ -21,6 +21,7 @@ export default function Filter(props) {
   
 
   React.useEffect(()=>{
+    
     setField(element.field);
     setCondition(element.condition);
     setCriteria(element.criteria);
@@ -55,7 +56,7 @@ export default function Filter(props) {
   }
 
   return (
-    <Paper sx={{ marginTop: "1%" }}>
+    <Paper elevation ={0}  sx={{ margin: "1%", background: '#1D2025' }}>
       <Grid container>
         <Grid item xs={3.5}>
           <Typography>Fields</Typography>
