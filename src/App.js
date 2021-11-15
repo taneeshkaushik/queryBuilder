@@ -1,7 +1,7 @@
 import React from 'react'; 
 import Group from './Group'; 
 import Query from './Query'
-import {Button, Paper,Slide} from '@mui/material'; 
+import {Button, Paper} from '@mui/material'; 
 
 
 function App() {

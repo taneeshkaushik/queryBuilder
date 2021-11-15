@@ -25,7 +25,7 @@ export default function Filter(props) {
     setField(element.field);
     setCondition(element.condition);
     setCriteria(element.criteria);
-      },[props.data])
+      },[props.data, element, props.groups])
 
   function handleChange(event) {
 
