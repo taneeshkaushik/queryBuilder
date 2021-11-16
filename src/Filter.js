@@ -40,20 +40,16 @@ export default function Filter(props) {
       case "criteria":
         item.criteria = event.target.value;
     }
-    var newData = [...props.data];
-    newData[props.index] = item;
 
-    props.setData(newData);
-    
+    var newAllData=[...props.allData]; 
+    var newData=[...newAllData[props.index1]]; 
+    newData[props.index]=item; 
+    newAllData[props.index1]= newData;
+    props.setAllData(newAllData);
     
   }
 
-  function deleteFilter() {
-    var newData =[...props.data];
-    newData.splice(props.index, 1);
-    props.setData(newData);
-    
-  }
+ 
 
   return (
     <Paper elevation ={0}  sx={{ margin: "1%", background: '#1D2025' }}>
@@ -90,7 +86,7 @@ export default function Filter(props) {
             <div></div>
           ) : (
             <IconButton
-              onClick={deleteFilter}
+              onClick={()=>{props.deleteFilter(props.index)}}
               aria-label="delete"
               color="primary"
             >

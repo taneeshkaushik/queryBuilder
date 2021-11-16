@@ -8,12 +8,20 @@ function App() {
 
    
   const [queries, setQueries] =  React.useState([]);
-  const [groups, setGroups] = React.useState([0]);
+  const firstElem=[
+    {
+      field: "Theme",
+      condition: "Equals",
+      criteria: "Offers",
+      isFirst: "true",
+    },
+  ]; 
+  const [allData, setAllData]=React.useState([firstElem]);
 
   function addGroup()
     {
-      var newGroups=[...groups, 0];  
-      setGroups(newGroups); 
+      var newData=[...allData, firstElem];  
+      setAllData(newData); 
     }
   
   function copy()
@@ -27,20 +35,21 @@ function App() {
 
     var newQueries=[...queries]; 
     newQueries.splice(index,1); 
-    var newGroups=[...groups]; 
-    newGroups.splice(index, 1); 
+    var newData=[...allData]; 
+    newData.splice(index, 1); 
     setQueries(newQueries);
-    setGroups(newGroups);
+    setAllData(newData);
     
   }
+
 
   return (
     
     <Paper  sx={{position:'fixed', width:'100%', height:'100%', background:'#000000', overflow:'scroll'}}>
       <Query  queries={queries}></Query>
-      
+
       {
-        groups.map((element, index)=><Group queries={queries} setQueries={setQueries} groups={groups} setGroups={setGroups} deleteGroup={deleteGroup} index={index} ></Group>)
+        allData.map((element, index)=><Group queries={queries} setQueries={setQueries} allData={allData} setAllData={setAllData} deleteGroup={deleteGroup} index={index} element={element} ></Group>)
       }
       
       <Button sx={{marginLeft:'10%', marginTop:'5%'}} onClick={addGroup} color="primary" variant="contained">Add Group</Button>

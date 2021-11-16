@@ -6,15 +6,7 @@ import QueryBuilder from "./QueryBuilder";
 export default function Group(props) {
   
   const [conjuction, setConjuction] = React.useState(0);
-  const [data, setData] = React.useState([
-    {
-      field: "Theme",
-      condition: "Equals",
-      criteria: "Offers",
-      isFirst: "true",
-    },
-  ]);
-
+  const [data, setData] = React.useState(props.allData[props.index]);
   React.useEffect(() => {
       
     const query = QueryBuilder(conjuction, data);
@@ -24,7 +16,14 @@ export default function Group(props) {
     
     props.setQueries(newQueries); 
     
+
   }, [data, conjuction]);
+
+
+  React.useEffect(()=>{
+    setData(props.allData[props.index]);
+  }, [props.allData])
+
 
  
 
@@ -40,9 +39,24 @@ export default function Group(props) {
       condition: "Equals",
       criteria: "Offers",
     };
-    setData([...data, rule]);
-  }
+    var newAllData=[...props.allData]; 
+    var newData=[...newAllData[props.index]]; 
+    newData.push(rule); 
+    newAllData[props.index]= newData;
+    props.setAllData(newAllData);
     
+  }
+  
+  function deleteFilter(index)
+  {
+    console.log("helo"); 
+    
+    var newAllData=[...props.allData]; 
+    var newData=[...newAllData[props.index]]; 
+    newData.splice(index,1); 
+    newAllData[props.index]= newData;
+    props.setAllData(newAllData);
+  }
 
   
 
@@ -60,7 +74,7 @@ export default function Group(props) {
         <ToggleButton value={1}>AND</ToggleButton>
       </ToggleButtonGroup>
       {data.map((element, index) => (
-        <Filter data={data} setData={setData} index={index} groups={props.groups} ></Filter>
+        <Filter data={data} setData={setData} index1={props.index} index={index} allData={props.allData} setAllData={props.setAllData} groups={props.groups} deleteFilter={deleteFilter} ></Filter>
       ))}
       <Button sx={{margin:'1%'}} color="primary" variant="contained" onClick={addFilter}>
         Add Filter
