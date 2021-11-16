@@ -1,6 +1,6 @@
-# Installation
+# Installation and running
 Please run npm install after cloning and moving to the project directory. 
-
+After that run npm start a dev server will start and site can be seen locally at http://localhost:3000/
 
 # Comments
 I have not used redux for the state managment as I think as it was a simple application, and atleast these many states should be managed directly by me. 
