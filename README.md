@@ -5,7 +5,9 @@ After that run npm start a dev server will start and site can be seen locally at
 # Comments
 I have not used redux for the state managment as I think as it was a simple application, and atleast these many states should be managed directly by me. 
 I have used material ui. 
-There is one problem which I am facing and not yet able to solve which occurs on group deletion, in which state does not change well. I will try to figure out myself if not I will seek help. 
+I just resolved this problem and pushed the changes now everything is working as expected. 
+
+(There is one problem which I am facing and not yet able to solve which occurs on group deletion, in which state does not change well. I will try to figure out myself if not I will seek help.) 
 
 # Live
 Here is the live site deployed on netlify: https://firequery.netlify.app/
