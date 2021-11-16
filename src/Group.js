@@ -5,7 +5,7 @@ import QueryBuilder from "./QueryBuilder";
 
 export default function Group(props) {
   
-  const [conjuction, setConjuction] = React.useState(0);
+  const [conjuction, setConjuction] = React.useState(props.con[props.index]);
   const [data, setData] = React.useState(props.allData[props.index]);
   React.useEffect(() => {
       
@@ -15,9 +15,10 @@ export default function Group(props) {
     newQueries[props.index]=query;
     
     props.setQueries(newQueries); 
-    
+    setConjuction(props.con[props.index]); 
 
-  }, [data, conjuction]);
+
+  }, [data, props.con]);
 
 
   React.useEffect(()=>{
@@ -28,7 +29,9 @@ export default function Group(props) {
  
 
   const handleChange = (event, newConjuction) => {
-    setConjuction(newConjuction);
+    var newConj=[...props.con]; 
+    newConj[props.index]=newConjuction; 
+    props.setCon(newConj);
   };
 
 
@@ -49,8 +52,8 @@ export default function Group(props) {
   
   function deleteFilter(index)
   {
-    console.log("helo"); 
     
+
     var newAllData=[...props.allData]; 
     var newData=[...newAllData[props.index]]; 
     newData.splice(index,1); 
@@ -58,7 +61,7 @@ export default function Group(props) {
     props.setAllData(newAllData);
   }
 
-  
+
 
   return (
     <Paper  sx={{ marginLeft: "10%", marginRight: "10%", marginTop: "2%", background: '#1D2025'   }}>
