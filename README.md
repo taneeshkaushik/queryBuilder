@@ -13,7 +13,8 @@ Here is the live site deployed on netlify: https://firequery.netlify.app/
 # States
 Below is the basic state overview which is describing how various components are interacting. 
 
-![stateOverview](https://user-images.githubusercontent.com/42700358/141845478-743eb2f0-e7b2-4f73-b8a5-8d87f0b35942.png)
+![stateOverview](https://user-images.githubusercontent.com/42700358/141972138-c72c2045-b2dc-43e3-84ed-0438eafa5345.png)
+
 
 
 It was a good learning experience working on it. Thanks.  
